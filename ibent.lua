@@ -4,6 +4,7 @@ local Workspace = game:GetService("Workspace")
 local player = Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local humanoid = character:WaitForChild("Humanoid")
 
 local function teleportPlayerToCandyCorn()
     local eggHuntFolder = Workspace:FindFirstChild("EggHunt_Baby1")
@@ -29,6 +30,8 @@ local function teleportPlayerToCandyCorn()
     elseif randomObject:IsA("Model") and randomObject.PrimaryPart then
         humanoidRootPart.CFrame = randomObject.PrimaryPart.CFrame + Vector3.new(0, 2, 0)
     end
+
+    humanoid.Jump = true
 end
 
 while true do
